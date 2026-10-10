@@ -2,7 +2,7 @@
 import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
-const port=Number(process.env.PREVIEW_PORT || 4197), root=resolve('public');
+const port=Number(process.env.PREVIEW_PORT || 4198), root=resolve('public');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.jpg':'image/jpeg','.jpeg':'image/jpeg','.xml':'application/xml','.txt':'text/plain'};
 const conf=JSON.parse(await readFile('vercel.json','utf8'));
 http.createServer(async(req,res)=>{
@@ -23,6 +23,6 @@ http.createServer(async(req,res)=>{
  const path=resolve(root,'.'+decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname));
  let data,status=200;
  try {if(!path.startsWith(root+'/'))throw Error();data=await readFile(path);}catch{data=await readFile(root+'/404.html');status=404;}
- if((status===404||extname(path)==='.html')) data=Buffer.from(data.toString().replaceAll('form-action https://formspree.io', "form-action 'self'").replace('action="https://formspree.io/f/xdeazgld"', 'action="/__form-fixture"').replace(/<body\b[^>]*>/i, '$&<p role="note" class="wrap">Místní testovací náhled — formulář neposílá skutečné e-maily.</p>'));
+ if((status===404||extname(path)==='.html')) data=Buffer.from(data.toString().replaceAll('form-action https://formspree.io', "form-action 'self'").replace('action="https://formspree.io/f/xdeazgld"', 'action="/__form-fixture"').replace(/<body\b[^>]*>/i, '$&<p role="note" class="wrap">Místní testovací náhled — formulář neposílá skutečné e-maily a návštěvnost se neměří.</p>'));
  res.setHeader('Content-Type',types[extname(status===404?'404.html':path)]||'application/octet-stream');res.writeHead(status);res.end(data);
 }).listen(port,'127.0.0.1',()=>console.log(`LOCAL FIXTURE ONLY http://127.0.0.1:${port}; no real emails/analytics/Formspree`));

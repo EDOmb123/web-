@@ -4,7 +4,7 @@ from pathlib import Path
 import hashlib, json, zipfile, argparse
 root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
-parser.add_argument('--output', default='finance-web-github-formspree-u29.zip')
+parser.add_argument('--output', default='finance-web-github-u30.zip')
 parser.add_argument('--manifest', default='vercel-manifest.json')
 args = parser.parse_args()
 allowed_roots = {'public', 'scripts', 'test'}

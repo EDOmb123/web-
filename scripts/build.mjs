@@ -11,9 +11,9 @@ const preview = Boolean(process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'pr
 for (const name of await readdir(`${root}/public`)) if (name.endsWith('.html')) {
   const path = `${root}/public/${name}`;
   const robots = preview ? 'noindex,nofollow' : name === 'index.html' ? 'index,follow' : 'noindex,follow';
-  await writeFile(path, (await readFile(path, 'utf8')).replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="${robots}">`));
+  await writeFile(path, (await readFile(path, 'utf8')).replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="${robots}">`).replace(/<meta name="deployment-environment" content="[^"]*">/, `<meta name="deployment-environment" content="${preview ? 'preview' : 'production'}">`));
 }
 await writeFile(`${root}/public/robots.txt`, preview
   ? 'User-agent: *\nDisallow: /\n'
-  : 'User-agent: *\nAllow: /\n\nSitemap: https://edomb.cz/sitemap.xml\n');
+  : 'User-agent: *\nAllow: /\n\nSitemap: https://www.edomb.cz/sitemap.xml\n');
 console.log('Static output verified; native Formspree form needs no serverless function.');

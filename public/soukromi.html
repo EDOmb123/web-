@@ -2,19 +2,28 @@
 <html lang="cs">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="deployment-environment" content="production">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action https://formspree.io">
   <meta name="robots" content="noindex,follow"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta name="description" content="Informace o zpracování osobních údajů na webu edomb.cz a při úvodní poptávce konzultace u Václava Kunce a týmu.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Václav Kunc &amp; tým">
+  <meta property="og:locale" content="cs_CZ">
   <meta property="og:title" content="Ochrana osobních údajů | Václav Kunc &amp; tým">
   <meta property="og:description" content="Informace o zpracování osobních údajů na webu edomb.cz a při úvodní poptávce konzultace u Václava Kunce a týmu.">
-  <meta property="og:url" content="https://edomb.cz/soukromi.html">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:url" content="https://www.edomb.cz/soukromi.html">
+  <meta property="og:image" content="https://www.edomb.cz/assets/team-portrait.jpg">
+  <meta property="og:image:width" content="768">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Václav Kunc a tým">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.edomb.cz/assets/team-portrait.jpg">
+  <meta name="twitter:image:alt" content="Václav Kunc a tým">
   <title>Ochrana osobních údajů | Václav Kunc &amp; tým</title>
-  <link rel="stylesheet" href="styles.css?v=28">
-  <script type="module" src="analytics.js?v=28"></script>
-<link rel="canonical" href="https://edomb.cz/soukromi.html">
+  <link rel="stylesheet" href="styles.css?v=30">
+  <script type="module" src="analytics.js?v=30"></script>
+<link rel="canonical" href="https://www.edomb.cz/soukromi.html">
 </head>
 <body>
   <a class="skip" href="#obsah">Přejít na obsah</a>
@@ -41,7 +50,7 @@
 
     <section aria-labelledby="prijemci"><h2 id="prijemci">Komu mohou být údaje zpřístupněny</h2>
       <p>Vaše poptávky mohou vyřizovat Václav Kunc, Václav Kunc ml. a Vojtěch Kunc. Formulář odesílá zprávu na <a href="mailto:vaclav.kunc@edofinance.cz">vaclav.kunc@edofinance.cz</a>; administraci schránky zajišťuje Václav Kunc.</p>
-      <p>Hosting a volitelnou analytiku zajišťuje Vercel. Formulář předáváte přímo službě Formspree, Inc., která zpracovává obsah a kontaktní údaje pro přijetí poptávky, její uložení a e-mailové oznámení. Na doručení a ukládání pošty se dále podílí technický poskytovatel schránky a případní pověření správci IT.</p>
+      <p>Hosting a analytiku zajišťuje Vercel. Formulář předáváte přímo službě Formspree, Inc., která zpracovává obsah a kontaktní údaje pro přijetí poptávky, její uložení a e-mailové oznámení. Na doručení a ukládání pošty se dále podílí technický poskytovatel schránky a případní pověření správci IT.</p>
       <p>Odkazy na spolupracující firmy nepředstavují automatické předání vaší poptávky. Při přechodu na cizí web se uplatní jeho informace o soukromí. Pro navazující služby skupiny eDO jsou dostupné také <a href="https://www.edofinance.cz/cz/gdpr">informace eDO o zpracování osobních údajů</a>.</p>
     </section>
 
@@ -52,12 +61,15 @@
 
     <section aria-labelledby="cookies"><h2 id="cookies">Provoz webu a uložené předvolby</h2>
       <p>Na tomto webu formulář nevytváří session cookie. Po odeslání se otevře stránka Formspree, která může použít vlastní cookies a ověření proti spamu podle svých podmínek. Nepoužíváme externí fonty, reklamní pixely ani záznam pohybu na stránce. Hosting může zpracovávat technické údaje pro doručení a zabezpečení webu.</p>
-      <p>Vaši volbu analytiky uchováváme v místním úložišti prohlížeče pod označením <code>edomb.analytics.v1</code> po dobu 183 dní (přibližně 6 měsíců). Ukládá se jen povolení nebo odmítnutí a čas volby, nikoli identifikátor osoby nebo obsah formuláře.</p>
+      <p>Pokud analytiku vypnete nebo znovu zapnete, uložíme volbu a její čas do místního úložiště prohlížeče pod označením <code>edomb.analytics.v1</code>. Volba zůstává do její změny nebo smazání dat prohlížeče; nejde o identifikátor osoby ani obsah formuláře. Respektujeme i dříve uložené odmítnutí, včetně původně expirované volby.</p>
     </section>
-    <section aria-labelledby="analytika"><h2 id="analytika">Volitelná analytika návštěvnosti</h2>
-      <p>Vercel Web Analytics načítáme až po vašem povolení. Zjišťujeme návštěvnost veřejných stránek a souhrnné technické údaje, například typ zařízení a prohlížeče. Neměříme obsah formuláře, zvolené finanční téma ani jednotlivé kontaktní akce. Z měřených URL odstraňujeme parametry a kotvy; návštěvy s parametry, kotvami nebo nepovolenou cestou v odkazující adrese vynecháváme.</p>
-      <p>Vercel pro toto měření nepoužívá analytické cookies; podle své dokumentace zpracovává technické údaje požadavku a vytváří dočasný identifikátor pro rozlišení návštěv. Nejde o tvrzení, že se nezpracovávají žádné osobní údaje. Právním základem zvolené volitelné analytiky je váš souhlas podle čl. 6 odst. 1 písm. a) GDPR.</p>
-      <p>Souhlas můžete kdykoli změnit přes „Nastavení analytiky“ v patičce. Odvolání zastaví další měření, neovlivní předchozí oprávněné zpracování a neblokuje formulář ani kontakty. Respektujeme také signály Do Not Track a Global Privacy Control. Dříve odeslané souhrnné údaje tím nejsou automaticky smazány.</p>
+    <section aria-labelledby="analytika"><h2 id="analytika">Měření návštěvnosti</h2>
+      <p>Na produkčním webu používáme automatické základní měření Vercel Web Analytics pro přehled o návštěvnosti a fungování stránek. Neměříme obsah formuláře, finanční téma, kontaktní akce ani reklamní profily. Z měřených URL odstraňujeme parametry a kotvy; návštěvy s citlivou odkazující adresou vynecháváme.</p>
+      <p>Měření slouží oprávněnému zájmu správce na vyhodnocení návštěvnosti a zlepšování webu podle čl. 6 odst. 1 písm. f) GDPR. Můžete proti němu vznést námitku nebo je zde vypnout. Vercel podle své dokumentace nepoužívá analytické cookies, z technických údajů však vytváří dočasný identifikátor návštěvy. Nejde o tvrzení, že se nezpracovávají osobní údaje.</p>
+      <p>Respektujeme předchozí odmítnutí a signály Do Not Track a Global Privacy Control. Bez JavaScriptu, v místních náhledech a při nedostupném nastavení úložiště se měření nespouští. Vypnutí blokuje další události v tomto prohlížeči a při sdíleném úložišti také v ostatních otevřených kartách. Historické souhrnné údaje se tím automaticky nemažou. Formulář a kontakty fungují nezávisle na analytice.</p>
+      <p id="analytics-status" role="status" aria-live="polite"></p>
+      <button type="button" id="analytics-optout" class="analytics-optout" hidden>Vypnout analytiku v tomto prohlížeči</button>
+      <noscript><p>JavaScript je vypnutý, proto se analytika nespouští.</p></noscript>
       <p>Podrobnosti uvádí <a href="https://vercel.com/docs/analytics/privacy-policy">dokumentace soukromí Vercel Web Analytics</a>. Dostupnost a doba uchování statistik závisí na nastavení služby.</p>
     </section>
     <section aria-labelledby="poskytovatele"><h2 id="poskytovatele">Technické služby a předávání údajů</h2>
@@ -81,6 +93,6 @@
     </section>
     <a class="privacy-back" href="index.html#kontakt">Zpět ke kontaktu</a>
   </article></main>
-  <footer class="site-footer"><div class="wrap footer-inner"><div><p class="footer-name">Václav Kunc &amp; tým</p><p>eDO Finance &amp; Reality</p></div><div class="footer-operator"><p>Provozovatel: Václav Kunc</p><p>IČO: 24023191</p><p>Sídlo: Nová 70, Čejetice, 293 01 Mladá Boleslav</p><a class="footer-privacy" href="soukromi.html" aria-current="page">Ochrana osobních údajů</a></div></div><div class="wrap analytics-settings"><button type="button" class="analytics-toggle" aria-expanded="true" aria-controls="analytics-panel" hidden>Nastavení analytiky</button><section id="analytics-panel" class="analytics-panel" aria-labelledby="analytics-title" hidden><h2 id="analytics-title">Volitelná analytika</h2><p>S vaším souhlasem používáme Vercel Web Analytics pro měření návštěvnosti. Formulář a kontakty fungují i bez ní.</p><p id="analytics-status" role="status" aria-live="polite"></p><div class="analytics-actions"><button type="button" class="button secondary" data-analytics="allow">Povolit analytiku</button><button type="button" class="button secondary" data-analytics="deny">Bez analytiky</button></div><a href="soukromi.html#analytika">Podrobnosti o soukromí</a></section><noscript><p>Analytika je vypnutá. Nastavení vyžaduje JavaScript.</p></noscript></div></footer>
+  <footer class="site-footer"><div class="wrap footer-inner"><div><p class="footer-name">Václav Kunc &amp; tým</p><p>eDO Finance &amp; Reality</p></div><div class="footer-operator"><p>Provozovatel: Václav Kunc</p><p>IČO: 24023191</p><p>Sídlo: Nová 70, Čejetice, 293 01 Mladá Boleslav</p><a class="footer-privacy" href="soukromi.html" aria-current="page">Ochrana osobních údajů</a></div></div></footer>
 </body>
 </html>
