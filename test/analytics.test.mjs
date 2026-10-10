@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { KEY, MAX_AGE, readChoice, sanitizeEvent } from '../public/analytics-policy.mjs';
+const storage = value => ({getItem:()=>JSON.stringify(value)});
+const context={allowed:true,origin:'https://edomb.cz',referrer:'',dnt:false};
+test('consent default, malformed, expired, future, storage exception fail closed',()=>{for(const value of [null,{}, {choice:'yes',time:1},{choice:'allow',time:0},{choice:'allow',time:MAX_AGE+5}])assert.equal(readChoice(storage(value),MAX_AGE+1),null);assert.equal(readChoice({getItem(){throw Error();}}),null);assert.equal(readChoice(storage({choice:'allow',time:100}),101),'allow');assert.equal(readChoice(storage({choice:'deny',time:100}),101),'deny');assert.equal(KEY,'edomb.analytics.v1');});
+test('page URLs lose query hash and arbitrary data',()=>assert.deepEqual(sanitizeEvent({type:'pageview',url:'https://edomb.cz/?email=secret#hypoteky',email:'secret'},context),{type:'pageview',url:'https://edomb.cz/'}));
+test('unknown paths, foreign origins, custom events and referrer query blocked',()=>{for(const event of [{type:'event',url:'https://edomb.cz/'},{type:'pageview',url:'https://evil.test/'},{type:'pageview',url:'https://edomb.cz/private/email'},{type:'pageview',url:'nonsense'}])assert.equal(sanitizeEvent(event,context),null);for(const ctx of [{allowed:false},{dnt:true},{referrer:'https://example.com/?email=secret'},{referrer:'https://example.com/#secret'}])assert.equal(sanitizeEvent({type:'pageview',url:'https://edomb.cz/'},{...context,...ctx}),null);});
+
+test('referrer path or credentials cannot leak identifiers',()=>{for(const referrer of ['https://other.test/users/jane@example.test','https://edomb.cz/users/123','https://name:pass@example.test/'])assert.equal(sanitizeEvent({type:'pageview',url:'https://edomb.cz/'},{...context,referrer}),null);assert.ok(sanitizeEvent({type:'pageview',url:'https://edomb.cz/'},{...context,referrer:'https://edomb.cz/soukromi.html'}));});
